@@ -13,7 +13,6 @@ import IconButton from '@material-ui/core/IconButton';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-import { useState } from 'react';
 import "../../App.css"
 
 
@@ -86,7 +85,6 @@ export default function Menu(props) {
     
     const Priceminus = (f) => {  console.log(f) }
     const classes = useStyles();
-    const bull = <span className={classes.bullet}>•</span>;
     // let Price=10;
     // console.log(fries)
 
