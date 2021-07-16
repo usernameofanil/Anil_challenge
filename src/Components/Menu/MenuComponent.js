@@ -13,6 +13,8 @@ import IconButton from '@material-ui/core/IconButton';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
+import { NavLink } from 'react-router-dom';
+
 import "../../App.css"
 
 
@@ -83,8 +85,8 @@ export default function Menu(props) {
         setOpen(false);
     };
     
-    const Priceminus = (f) => {  console.log(f) }
     const classes = useStyles();
+    
     // let Price=10;
     // console.log(fries)
 
@@ -101,21 +103,52 @@ export default function Menu(props) {
                 BackdropProps={{
                     timeout: 500,
                 }}
+                {...props}
             >
                 <Fade in={open}>
                     <div className={classes.paper}>
                         <h3>Order Summary</h3>
                         <div className={classes.orders}>
-                            <h4>coke:</h4>
+                            <h4>Hamburger:</h4>
                             <div>
-                                2
+                                {props.state.Hamburger}
                             </div>
 
                             <div style={{ display: 'flex', height: '30px' }}>
-                                <Button size="small" color="primary" variant="contained">
+                                <Button onClick={() => props.Priceplus("Hamburger")} size="small" color="primary" variant="contained">
                                     +
                                 </Button>
-                                <Button size="small" color="secondary" variant="contained">
+                                <Button onClick={() => props.Priceminus("Hamburger")} size="small" color="secondary" variant="contained">
+                                    -
+                                </Button>
+                            </div>
+                        </div>
+                        <div className={classes.orders}>
+                            <h4>Pepsi:</h4>
+                            <div>
+                                {props.state.Pepsi}
+                            </div>
+
+                            <div style={{ display: 'flex', height: '30px' }}>
+                                <Button onClick={() => props.Priceplus("Pepsi")} size="small" color="primary" variant="contained">
+                                    +
+                                </Button>
+                                <Button onClick={() => props.Priceminus("Pepsi")} size="small" color="secondary" variant="contained">
+                                    -
+                                </Button>
+                            </div>
+                        </div>
+                        <div className={classes.orders}>
+                            <h4>Coke:</h4>
+                            <div>
+                                {props.state.Coke}
+                            </div>
+
+                            <div style={{ display: 'flex', height: '30px' }}>
+                                <Button onClick={() => props.Priceplus("Coke")} size="small" color="primary" variant="contained">
+                                    +
+                                </Button>
+                                <Button onClick={() => props.Priceminus("Coke")} size="small" color="secondary" variant="contained">
                                     -
                                 </Button>
                             </div>
@@ -123,26 +156,28 @@ export default function Menu(props) {
                         <div className={classes.orders}>
                             <h4>fries:</h4>
                             <div>
-                                1
+                                {props.state.fries}
                             </div>
 
                             <div style={{ display: 'flex', height: '30px' }}>
-                                <Button size="small" color="primary" variant="contained">
+                                <Button onClick={() => props.Priceplus("Fries")} size="small" color="primary" variant="contained">
                                     +
                                 </Button>
-                                <Button size="small" color="secondary" variant="contained">
+                                <Button onClick={() => props.Priceminus("Fries")} size="small" color="secondary" variant="contained">
                                     -
                                 </Button>
                             </div>
                         </div>
-                        <h4>Total(INR):200</h4>
+                        <h4>Total(INR): {props.state.finalAmount}</h4>
 
 
                         <div className={classes.btn}>
-                            <Button size="small" color="primary" variant="contained">
+                            <NavLink exact to="/Checkout">
+                                <Button size="small" color="primary" variant="contained">
                                 Save and Checkout
                             </Button>
-                            <Button size="small" color="primary">
+                                </NavLink>
+                            <Button onClick={handleClose} size="small" color="primary">
                                 Cancel
                             </Button>
                         </div>
@@ -194,7 +229,7 @@ export default function Menu(props) {
                         <Button onClick={() => props.Priceplus("Hamburger")} size="small" color="primary" variant="contained">
                             +
                         </Button>
-                        <Button onClick={() => Priceminus("Hamburger")} size="small" variant="contained">
+                        <Button onClick={() => props.Priceminus("Hamburger")} size="small" variant="contained">
                             -
                         </Button>
                     </CardActions>
@@ -233,7 +268,7 @@ export default function Menu(props) {
                         <Button onClick={() => props.Priceplus("Fries")} size="small" color="primary" variant="contained">
                             +
                         </Button>
-                        <Button onClick={() => Priceminus("Fries")} size="small" variant="contained">
+                        <Button onClick={() => props.Priceminus("Fries")} size="small" variant="contained">
                             -
                         </Button>
                     </CardActions>
@@ -270,7 +305,7 @@ export default function Menu(props) {
                         <Button onClick={() => props.Priceplus("Coke")} size="small" color="primary" variant="contained">
                             +
                         </Button>
-                        <Button onClick={() => Priceminus("Coke")} size="small" variant="contained">
+                        <Button onClick={() => props.Priceminus("Coke")} size="small" variant="contained">
                             -
                         </Button>
                     </CardActions>
@@ -307,7 +342,7 @@ export default function Menu(props) {
                         <Button onClick={() => props.Priceplus("Pepsi")} size="small" color="primary" variant="contained">
                             +
                         </Button>
-                        <Button onClick={() => Priceminus("Pepsi")} size="small" variant="contained">
+                        <Button onClick={() => props.Priceminus("Pepsi")} size="small" variant="contained">
                             -
                         </Button>
                     </CardActions>
