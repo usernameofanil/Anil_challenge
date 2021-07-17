@@ -18,14 +18,14 @@ class Menu extends Component {
         };
     }
 
-     cartChange = () =>{
+    cartChange = async () =>{
         let items = 0;
         if (this.state.fries) items = items + 1;
         if (this.state.Hamburger) items = items + 1;
         if (this.state.Pepsi) items = items + 1;
         if (this.state.Coke) items = items + 1;
-
-        this.setState({ cartCount: items })
+        await this.setState({ cartCount: items })
+        console.log(this.state.fries,"Cart",items,"Count",this.state.cartCount)
         console.log("Fries",this.state.fries,"Cart",this.state.cartCount)
     }
 
@@ -48,7 +48,7 @@ class Menu extends Component {
             this.setState({ HamburgerPrice: this.state.HamburgerPrice + 200 })
         }
         this.setState({finalAmount:this.state.HamburgerPrice+this.state.PepsiPrice+this.state.friesPrice+this.state.CokePrice})
-
+        this.cartChange()
     }
     Priceminus = (e) => {
         console.log(e)

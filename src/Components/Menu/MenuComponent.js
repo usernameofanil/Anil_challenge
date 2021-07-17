@@ -229,7 +229,7 @@ export default function Menu(props) {
                         <Button onClick={() => props.Priceplus("Hamburger")} size="small" color="primary" variant="contained">
                             +
                         </Button>
-                        <Button onClick={() => props.Priceminus("Hamburger")} size="small" variant="contained">
+                        <Button onClick={() => props.Priceminus("Hamburger")} size="small" variant="contained" color={props.state.finalAmount ? "secondary" : "default"}>
                             -
                         </Button>
                     </CardActions>
@@ -268,7 +268,7 @@ export default function Menu(props) {
                         <Button onClick={() => props.Priceplus("Fries")} size="small" color="primary" variant="contained">
                             +
                         </Button>
-                        <Button onClick={() => props.Priceminus("Fries")} size="small" variant="contained">
+                        <Button onClick={() => props.Priceminus("Fries")} size="small" variant="contained" color={props.state.finalAmount ? "secondary" : "default"}>
                             -
                         </Button>
                     </CardActions>
@@ -305,7 +305,7 @@ export default function Menu(props) {
                         <Button onClick={() => props.Priceplus("Coke")} size="small" color="primary" variant="contained">
                             +
                         </Button>
-                        <Button onClick={() => props.Priceminus("Coke")} size="small" variant="contained">
+                        <Button onClick={() => props.Priceminus("Coke")} size="small" variant="contained" color={props.state.finalAmount ? "secondary" : "default"}>
                             -
                         </Button>
                     </CardActions>
@@ -342,7 +342,7 @@ export default function Menu(props) {
                         <Button onClick={() => props.Priceplus("Pepsi")} size="small" color="primary" variant="contained">
                             +
                         </Button>
-                        <Button onClick={() => props.Priceminus("Pepsi")} size="small" variant="contained">
+                        <Button onClick={() => props.Priceminus("Pepsi")} size="small" variant="contained" color={props.state.finalAmount ? "secondary" : "default"}>
                             -
                         </Button>
                     </CardActions>
